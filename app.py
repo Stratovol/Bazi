@@ -1,14 +1,13 @@
+import os
 from flask import Flask, render_template, request
 from datetime import datetime
 
 app = Flask(__name__)
 
-
 def calculate_bazi(birth_date, birth_time, place):
     """
     Dummy function to calculate a Bazi chart.
-    In a real implementation, use the birth_date, birth_time, and place
-    to determine the correct Heavenly Stems and Earthly Branches.
+    Replace this logic with your actual calculations.
     """
     # Dummy data for demonstration purposes:
     return {
@@ -17,7 +16,6 @@ def calculate_bazi(birth_date, birth_time, place):
         'day': {'stem': '丙', 'branch': '寅'},
         'hour': {'stem': '丁', 'branch': '卯'}
     }
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -54,6 +52,7 @@ def index():
     # GET request: display the form
     return render_template('index.html')
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Bind to PORT environment variable if available (useful for Heroku)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
