@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bazi Chart Result</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .bazi-chart {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .pillar {
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      width: 120px;
+      background-color: #f8f9fa;
+    }
+    .stem {
+      font-size: 2rem;
+      color: #007bff;
+    }
+    .branch {
+      font-size: 2rem;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-5">
+  <h1>Your Bazi Chart</h1>
+  <p><strong>Birth Date:</strong> {{ birth_date.strftime('%Y-%m-%d') }}</p>
+  <p><strong>Birth Time:</strong> {{ birth_time.strftime('%H:%M') }}</p>
+  <p><strong>Place of Birth:</strong> {{ place }}</p>
+
+  <div class="bazi-chart">
+    <div class="pillar">
+      <h5>Year</h5>
+      <div class="stem">{{ bazi.year.stem }}</div>
+      <div class="branch">{{ bazi.year.branch }}</div>
+    </div>
+    <div class="pillar">
+      <h5>Month</h5>
+      <div class="stem">{{ bazi.month.stem }}</div>
+      <div class="branch">{{ bazi.month.branch }}</div>
+    </div>
+    <div class="pillar">
+      <h5>Day</h5>
+      <div class="stem">{{ bazi.day.stem }}</div>
+      <div class="branch">{{ bazi.day.branch }}</div>
+    </div>
+    <div class="pillar">
+      <h5>Hour</h5>
+      <div class="stem">{{ bazi.hour.stem }}</div>
+      <div class="branch">{{ bazi.hour.branch }}</div>
+    </div>
+  </div>
+
+  <a href="/" class="btn btn-secondary mt-3">Back</a>
+</div>
+</body>
+</html>

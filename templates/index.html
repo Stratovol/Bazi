@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bazi Calculator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h1>Bazi Birth Chart Calculator</h1>
+  {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+  <form method="post">
+    <div class="form-group">
+      <label for="birth_date">Birth Date:</label>
+      <input type="date" class="form-control" id="birth_date" name="birth_date" required>
+    </div>
+    <div class="form-group">
+      <label for="birth_time">Birth Time (HH:MM):</label>
+      <input type="time" class="form-control" id="birth_time" name="birth_time" required>
+    </div>
+    <div class="form-group">
+      <label for="place">Place of Birth:</label>
+      <input type="text" class="form-control" id="place" name="place" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+  </form>
+</div>
+</body>
+</html>
